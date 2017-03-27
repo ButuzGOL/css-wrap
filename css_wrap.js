@@ -23,7 +23,11 @@ var
     return list.map( function( r ) {
       if ( r.selectors ) {
         r.selectors.forEach( function( s, index ) {
-          if (options.skip && options.skip.test(s)) return
+          var skip = options.skip;
+          if (skip) {
+            if (typeof skip === 'string') skip = new RegExp(skip);
+            if (skip.test(s)) return;
+          }
           var selector = options.selector ? options.selector + " " + s : s;
           r.selectors[ index ] = selector;
         });

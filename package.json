@@ -25,7 +25,11 @@
   "scripts": {
     "test": "nodeunit test/css_wrap_test.js"
   },
+  "bin": {
+    "css-wrap": "./cli.js"
+  },
   "dependencies": {
+    "commander": "^2.9.0",
     "css-parse": "^2.0.0",
     "css-stringify": "^2.0.0",
     "deepmerge": "^0.2.10"
